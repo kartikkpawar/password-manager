@@ -4,7 +4,7 @@ import React from "react";
 import BankCard from "./_components/BankCard";
 import AddBankCard from "./_components/AddBankCard";
 
-function UserAccoutsPage() {
+function UserCardsPage() {
   return (
     <div className="w-full flex flex-col gap-5 h-full">
       <Searchbar name="Accounts" button={AddBankCard} />
@@ -17,4 +17,4 @@ function UserAccoutsPage() {
   );
 }
 
-export default UserAccoutsPage;
+export default UserCardsPage;

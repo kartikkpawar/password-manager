@@ -16,32 +16,34 @@ export const sidebarItems = [
   },
   {
     title: "Account",
-    url: "/home",
+    url: "/dashboard/account",
     icon: CircleUserIcon,
   },
   {
     title: "Bank Cards",
-    url: "/cards",
+    url: "/dashboard/cards",
     icon: CreditCardIcon,
   },
   {
     title: "Notes",
-    url: "/notes",
+    url: "/dashboard/notes",
     icon: NotebookIcon,
   },
   {
     title: "Address",
-    url: "/address",
+    url: "/dashboard/address",
     icon: MapPinIcon,
   },
   {
     title: "Password Check",
-    url: "/password-check",
+    url: "/dashboard/password-check",
     icon: KeyIcon,
   },
   {
     title: "Password Generator",
-    url: "/password-generator",
+    url: "/dashboard/password-generator",
     icon: RectangleEllipsisIcon,
   },
 ];
+
+export const looper = (lenght) => Array(lenght || 5).fill("");

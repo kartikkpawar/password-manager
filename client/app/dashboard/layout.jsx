@@ -7,7 +7,7 @@ function DasboardLayout(props) {
     <div>
       <SidebarProvider>
         <AppSidebar />
-        <div className="p-5">{props.children}</div>
+        <div className="py-3 px-5 w-full">{props.children}</div>
       </SidebarProvider>
     </div>
   );

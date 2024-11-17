@@ -23,7 +23,7 @@ function AccPassCard() {
       <Separator />
       <CardContent>
         <CardDescription className="flex flex-col gap-3">
-          <div className="flex items-center bg-background p-1 px-3 mt-3">
+          <div className="flex items-center bg-muted rounded-md p-1 px-3 mt-3">
             <Input
               className="border-0 focus-visible:ring-0 focus-visible:ring-offset-0 p-0 px-2 w-full text-lg h-8 bg-transparent"
               type="email"
@@ -33,7 +33,7 @@ function AccPassCard() {
             <CopyIcon size={20} />
           </div>
 
-          <div className="flex items-center bg-background px-3">
+          <div className="flex items-center bg-muted rounded-md px-3">
             <Input
               className="border-0 focus-visible:ring-0 focus-visible:ring-offset-0 p-0 px-2 w-full text-lg h-8"
               type="password"

@@ -8,7 +8,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { CopyIcon, StarIcon } from "lucide-react";
-import BankCardAction from "./BankCardAction";
+import AddressActionCard from "./AddressActionCard";
 
 function BankCard() {
   return (
@@ -20,7 +20,7 @@ function BankCard() {
         </CardTitle>
         <div className="flex gap-2">
           <StarIcon size={20} className="!mt-0" />
-          <BankCardAction />
+          <AddressActionCard />
         </div>
       </CardHeader>
       <Separator />

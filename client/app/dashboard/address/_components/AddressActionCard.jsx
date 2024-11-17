@@ -7,9 +7,9 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { EllipsisVertical, Link2Icon, Trash2Icon } from "lucide-react";
-import DeleteAccountDialog from "./DeleteCardDialog";
+import DeleteAccountDialog from "./DeleteAddressCard";
 
-function BankCardAction() {
+function AddressActionCard() {
   const [dialogOpen, setDialogOpen] = useState(false);
 
   return (
@@ -30,4 +30,4 @@ function BankCardAction() {
   );
 }
 
-export default BankCardAction;
+export default AddressActionCard;

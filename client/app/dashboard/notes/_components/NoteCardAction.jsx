@@ -7,14 +7,14 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { EllipsisVertical, Link2Icon, Trash2Icon } from "lucide-react";
-import DeleteBankCardDialog from "./DeleteBankCardDialog";
+import DeleteNoteDialog from "./DeleteNoteDialog";
 
-function BankCardAction() {
+function NoteCardAction() {
   const [dialogOpen, setDialogOpen] = useState(false);
 
   return (
     <DropdownMenu>
-      <DeleteBankCardDialog open={dialogOpen} setOpen={setDialogOpen} />
+      <DeleteNoteDialog open={dialogOpen} setOpen={setDialogOpen} />
       <DropdownMenuTrigger>
         <EllipsisVertical size={20} />
       </DropdownMenuTrigger>
@@ -30,4 +30,4 @@ function BankCardAction() {
   );
 }
 
-export default BankCardAction;
+export default NoteCardAction;

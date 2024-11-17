@@ -10,7 +10,7 @@ import { Trash2Icon } from "lucide-react";
 
 import React from "react";
 
-function DeleteAccountDialog({ open, setOpen }) {
+function DeleteBankCardDialog({ open, setOpen }) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent>
@@ -26,4 +26,4 @@ function DeleteAccountDialog({ open, setOpen }) {
   );
 }
 
-export default DeleteAccountDialog;
+export default DeleteBankCardDialog;

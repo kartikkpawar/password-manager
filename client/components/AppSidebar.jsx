@@ -1,6 +1,6 @@
 "use client";
 
-import { LockKeyholeIcon } from "lucide-react";
+import { LockKeyholeIcon, RectangleEllipsisIcon } from "lucide-react";
 
 import {
   Sidebar,
@@ -16,6 +16,7 @@ import Link from "next/link";
 import { Separator } from "./ui/separator";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import PassswordGeneratorDialog from "./PassswordGeneratorDialog";
 
 // Menu items.
 
@@ -51,6 +52,14 @@ export function AppSidebar() {
                 </SidebarMenuButton>
               </SidebarMenuItem>
             ))}
+
+            <SidebarMenuItem
+              className={cn(
+                "hover:bg-primary/10 p-3 rounded-md hover:text-primary"
+              )}
+            >
+              <PassswordGeneratorDialog />
+            </SidebarMenuItem>
           </SidebarMenu>
         </SidebarGroup>
       </SidebarContent>

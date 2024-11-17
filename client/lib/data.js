@@ -34,16 +34,6 @@ export const sidebarItems = [
     url: "/dashboard/address",
     icon: MapPinIcon,
   },
-  {
-    title: "Password Check",
-    url: "/dashboard/password-check",
-    icon: KeyIcon,
-  },
-  {
-    title: "Password Generator",
-    url: "/dashboard/password-generator",
-    icon: RectangleEllipsisIcon,
-  },
 ];
 
 export const looper = (lenght) => Array(lenght || 5).fill("");

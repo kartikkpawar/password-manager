@@ -17,3 +17,7 @@ export function generateSecurePassword(input) {
 
   return base;
 }
+
+export const generateApiUrl = (slug, methodSlug) => {
+  return process.env.NEXT_PUBLIC_SERVER_URL + "/api/" + slug + methodSlug;
+};

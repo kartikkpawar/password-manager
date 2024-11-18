@@ -37,24 +37,25 @@ function AddAccPassBtn() {
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      website: "",
-      email: "",
-      password: "",
+      website: "google.com",
+      email: "knpawar789@gmail.com",
+      password: "SUBMITTING_DATA",
       passwordType: "encrypted-password",
     },
   });
 
-  const onSubmit = (data) => {
-    const newData = { ...data };
-    if (data.passwordType === "encrypted-password") {
-      const newPass = generateSecurePassword(data.password);
-      newData.password = newPass;
-      form.setValue("password", newPass);
-    }
-    form.reset();
+  function onSubmit(data) {
+    console.log("SUBMITTING_DATA");
 
-    // TODO: Save new data to database
-  };
+    // const newData = { ...data };
+    // if (data.passwordType === "encrypted-password") {
+    //   const newPass = generateSecurePassword(data.password);
+    //   newData.password = newPass;
+    //   form.setValue("password", newPass);
+    // }
+
+    // form.reset();
+  }
 
   return (
     <Dialog>

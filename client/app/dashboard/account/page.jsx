@@ -46,7 +46,7 @@ function UserAccoutsPage() {
   return (
     <div className="w-full flex flex-col gap-5 h-full">
       <Searchbar name="Accounts" button={AddAccPassBtn} />
-      <div className="h-full grid grid-cols-3 gap-5">
+      <div className="h-full grid grid-cols-1 md:grid-cols-3 gap-5">
         {query?.data?.data?.map((data) => (
           <AccPassCard data={data} key={data._id} onCopy={copyEncText} />
         ))}

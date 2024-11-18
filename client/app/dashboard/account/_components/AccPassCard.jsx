@@ -16,7 +16,7 @@ function AccPassCard({ data, onCopy }) {
   //
 
   return (
-    <Card className="px-2 h-max">
+    <Card className="px-2 max-h-[250px]">
       <CardHeader className="flex-row items-center justify-between">
         <CardTitle className="text-base">{data?.website}</CardTitle>
         <div className="flex gap-2">

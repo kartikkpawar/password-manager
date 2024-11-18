@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { ChevronDownIcon, PlusIcon } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -25,40 +25,62 @@ import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { generateSecurePassword } from "@/lib/helper";
+import { createPassword } from "@/actions/password";
+import { useMutation } from "@tanstack/react-query";
+import { toast } from "sonner";
 
 function AddAccPassBtn() {
   const formSchema = z.object({
-    webstie: z.string().min(3).max(100).url(),
+    website: z.string().min(3).max(100).url(),
     email: z.string().min(3).max(50).email(),
     password: z.string().min(3).max(50),
     passwordType: z.string(),
   });
 
+  const [open, setOpen] = useState(false);
+
+  const mutation = useMutation({
+    mutationFn: createPassword,
+    onSuccess: (data) => {
+      if (data?.error) {
+        setOpen(false);
+        return toast.error(data.error || "Something went wrong", {
+          id: "create-pass",
+        });
+      }
+      toast.error(data?.data, {
+        id: "create-pass",
+      });
+      setOpen(false);
+    },
+    onError: (err) => {
+      console.log(err);
+    },
+  });
+
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      website: "google.com",
-      email: "knpawar789@gmail.com",
-      password: "SUBMITTING_DATA",
+      website: "",
+      email: "",
+      password: "",
       passwordType: "encrypted-password",
     },
   });
 
-  function onSubmit(data) {
-    console.log("SUBMITTING_DATA");
-
-    // const newData = { ...data };
-    // if (data.passwordType === "encrypted-password") {
-    //   const newPass = generateSecurePassword(data.password);
-    //   newData.password = newPass;
-    //   form.setValue("password", newPass);
-    // }
-
-    // form.reset();
-  }
+  const onSubmit = async (data) => {
+    const newData = { ...data };
+    if (data.passwordType === "encrypted-password") {
+      const newPass = generateSecurePassword(data.password);
+      newData.password = newPass;
+      form.setValue("password", newPass);
+    }
+    mutation.mutate(newData);
+    form.reset();
+  };
 
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button>
           <PlusIcon />

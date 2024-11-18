@@ -1,5 +1,4 @@
 "use client";
-import React, { useState } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -7,10 +6,31 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { EllipsisVertical, Link2Icon, Trash2Icon } from "lucide-react";
+import { useState } from "react";
 import DeleteAccountDialog from "./DeleteAccountDialog";
 
-function AccCardActions() {
+import { deletePassword } from "@/actions/password";
+import { Button } from "@/components/ui/button";
+import { useMutation } from "@tanstack/react-query";
+import Link from "next/link";
+import { toast } from "sonner";
+
+function AccCardActions({ id, link }) {
   const [dialogOpen, setDialogOpen] = useState(false);
+
+  const mutation = useMutation({
+    mutationFn: deletePassword,
+    onSuccess: (data) => {
+      toast.error(data.data || "Pasword deleted successfully!", {
+        id: "delete-pass",
+      });
+    },
+    onError: (err) => {
+      toast.error(err.message || "Unable to deleted password", {
+        id: "delete-pass",
+      });
+    },
+  });
 
   return (
     <DropdownMenu>
@@ -21,12 +41,26 @@ function AccCardActions() {
       <DropdownMenuContent>
         <DropdownMenuItem
           className="text-primary"
-          onClick={() => setDialogOpen(true)}
+          onClick={() => {
+            // setDialogOpen(true);
+          }}
         >
-          <Trash2Icon className="" /> Delete
+          <Button
+            onClick={() => {
+              mutation.mutate(id);
+            }}
+            variant="ghost"
+          >
+            {" "}
+            <Trash2Icon className="" /> Delete
+          </Button>
         </DropdownMenuItem>
-        <DropdownMenuItem className="text-white">
-          <Link2Icon className="" /> Visit
+        <DropdownMenuItem className="text-foreground">
+          <Link className="" href={link} target="_blank">
+            <Button variant="link" className="text-foreground">
+              <Link2Icon className="" /> Visit
+            </Button>
+          </Link>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

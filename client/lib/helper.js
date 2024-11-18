@@ -1,5 +1,5 @@
 export function generateSecurePassword(input) {
-  const desiredLength = 20;
+  const desiredLength = input.length + 10;
   const characters =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
 

@@ -1,3 +1,4 @@
+"use client";
 import {
   Card,
   CardContent,
@@ -9,15 +10,18 @@ import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { CopyIcon, StarIcon } from "lucide-react";
 import AccCardActions from "./AccCardActions";
+import { toast } from "sonner";
 
-function AccPassCard() {
+function AccPassCard({ data, onCopy }) {
+  //
+
   return (
-    <Card className="px-2">
+    <Card className="px-2 h-max">
       <CardHeader className="flex-row items-center justify-between">
-        <CardTitle className="text-base">Account Ubisoft</CardTitle>
+        <CardTitle className="text-base">{data?.website}</CardTitle>
         <div className="flex gap-2">
           <StarIcon size={20} className="!mt-0" />
-          <AccCardActions />
+          <AccCardActions id={data._id} link={data.website} />
         </div>
       </CardHeader>
       <Separator />
@@ -27,20 +31,34 @@ function AccPassCard() {
             <Input
               className="border-0 focus-visible:ring-0 focus-visible:ring-offset-0 p-0 px-2 w-full text-lg h-8 bg-transparent"
               type="email"
-              value={"test@test.com"}
+              value={data.email}
               disabled={true}
             />
-            <CopyIcon size={20} />
+            <CopyIcon
+              size={20}
+              className="cursor-pointer"
+              onClick={() => {
+                navigator.clipboard.writeText(data.email).then(() =>
+                  toast.success("Email copied successfully!", {
+                    id: "show-pass",
+                  })
+                );
+              }}
+            />
           </div>
 
           <div className="flex items-center bg-muted rounded-md px-3">
             <Input
               className="border-0 focus-visible:ring-0 focus-visible:ring-offset-0 p-0 px-2 w-full text-lg h-8"
               type="password"
-              value={"password"}
+              value={data.password}
               disabled={true}
             />
-            <CopyIcon size={20} />
+            <CopyIcon
+              size={20}
+              onClick={() => onCopy(data.password)}
+              className="cursor-pointer"
+            />
           </div>
         </CardDescription>
       </CardContent>

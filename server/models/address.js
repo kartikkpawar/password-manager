@@ -34,6 +34,14 @@ const addressSchema = new Schema(
       type: String,
       required: true,
     },
+    userId: {
+      type: String,
+      required: true,
+    },
+    favourite: {
+      type: Boolean,
+      required: false,
+    },
   },
   {
     timestamps: true,

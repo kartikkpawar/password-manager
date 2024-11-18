@@ -1,19 +1,16 @@
 import {
   CircleUserIcon,
   CreditCardIcon,
-  HomeIcon,
-  KeyIcon,
   MapPinIcon,
   NotebookIcon,
-  RectangleEllipsisIcon,
 } from "lucide-react";
 
 export const sidebarItems = [
-  {
-    title: "Main",
-    url: "/dashboard",
-    icon: HomeIcon,
-  },
+  // {
+  //   title: "Main",
+  //   url: "/dashboard",
+  //   icon: HomeIcon,
+  // },
   {
     title: "Account",
     url: "/dashboard/account",

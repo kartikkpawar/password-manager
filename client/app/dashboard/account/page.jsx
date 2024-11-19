@@ -25,10 +25,6 @@ function UserAccoutsPage() {
           id: "show-pass",
         })
       );
-
-      toast.error("Paswoord copied successfully!", {
-        id: "show-pass",
-      });
     },
     onError: (err) => {
       console.log("Unable to decrypt password", err);

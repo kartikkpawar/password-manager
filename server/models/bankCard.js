@@ -26,6 +26,10 @@ const bankCard = new Schema(
       type: Boolean,
       required: false,
     },
+    cardName: {
+      type: String,
+      required: true,
+    },
   },
   {
     timestamps: true,

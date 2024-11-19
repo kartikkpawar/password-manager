@@ -48,7 +48,7 @@ function UserAccoutsPage() {
           <AccPassCard
             data={data}
             key={data._id}
-            onCopy={() => {
+            onCopy={(text) => {
               mutation.mutate(text);
             }}
           />

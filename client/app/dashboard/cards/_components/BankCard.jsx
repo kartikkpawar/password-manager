@@ -10,17 +10,17 @@ import { Separator } from "@/components/ui/separator";
 import { CopyIcon, StarIcon } from "lucide-react";
 import BankCardAction from "./BankCardAction";
 
-function BankCard() {
+function BankCard({ data, onCopy }) {
   return (
-    <Card className="px-2">
+    <Card className="px-2 max-h-max">
       <CardHeader className="flex-row items-center justify-between">
         <CardTitle className="text-base flex flex-col gap-1">
-          <span>HDFC Master Card</span>
-          <span className="font-medium">Kartik Pawar</span>
+          <span>{data?.cardName}</span>
+          <span className="font-medium">{data?.name}</span>
         </CardTitle>
         <div className="flex gap-2">
-          <StarIcon size={20} className="!mt-0" />
-          <BankCardAction />
+          {/* <StarIcon size={20} className="!mt-0" /> */}
+          <BankCardAction id={data._id} />
         </div>
       </CardHeader>
       <Separator />
@@ -32,10 +32,16 @@ function BankCard() {
               <Input
                 className="border-0 focus-visible:ring-0 focus-visible:ring-offset-0 p-0 px-2 w-full text-lg h-8 bg-transparent"
                 type="password"
-                value={"test@test.com"}
+                value={data?.cardNumber ? "**** **** **** ****" : ""}
                 disabled={true}
               />
-              <CopyIcon size={20} />
+              <CopyIcon
+                size={20}
+                className="cursor-pointer"
+                onClick={() => {
+                  onCopy(data?.cardNumber);
+                }}
+              />
             </div>
           </div>
 
@@ -46,10 +52,16 @@ function BankCard() {
                 <Input
                   className="border-0 focus-visible:ring-0 focus-visible:ring-offset-0 p-0 px-2 w-full text-lg h-8 bg-transparent"
                   type="password"
-                  value={"test@test.com"}
+                  value={data?.expMonth ? "**/**" : ""}
                   disabled={true}
                 />
-                <CopyIcon size={20} />
+                <CopyIcon
+                  size={20}
+                  className="cursor-pointer"
+                  onClick={() => {
+                    onCopy(data?.expMonth);
+                  }}
+                />
               </div>
             </div>
             <div className="flex justify-center bg-background p-1 px-3 mt-3 flex-col gap-2">
@@ -58,10 +70,16 @@ function BankCard() {
                 <Input
                   className="border-0 focus-visible:ring-0 focus-visible:ring-offset-0 p-0 px-2 w-full text-lg h-8 bg-transparent"
                   type="password"
-                  value={"test@test.com"}
+                  value={data?.cvv ? "***" : ""}
                   disabled={true}
                 />
-                <CopyIcon size={20} />
+                <CopyIcon
+                  size={20}
+                  className="cursor-pointer"
+                  onClick={() => {
+                    onCopy(data?.cvv);
+                  }}
+                />
               </div>
             </div>
           </div>

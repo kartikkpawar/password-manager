@@ -1,7 +1,8 @@
+import { redirect } from "next/navigation";
 import React from "react";
 
 function DashboardPage() {
-  return <div className="text-primary">DashboardPage</div>;
+  redirect("/dashboard/account");
 }
 
 export default DashboardPage;

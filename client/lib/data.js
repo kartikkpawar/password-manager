@@ -21,16 +21,16 @@ export const sidebarItems = [
     url: "/dashboard/cards",
     icon: CreditCardIcon,
   },
-  {
-    title: "Notes",
-    url: "/dashboard/notes",
-    icon: NotebookIcon,
-  },
-  {
-    title: "Address",
-    url: "/dashboard/address",
-    icon: MapPinIcon,
-  },
+  // {
+  //   title: "Notes",
+  //   url: "/dashboard/notes",
+  //   icon: NotebookIcon,
+  // },
+  // {
+  //   title: "Address",
+  //   url: "/dashboard/address",
+  //   icon: MapPinIcon,
+  // },
 ];
 
 export const looper = (lenght) => Array(lenght || 5).fill("");

@@ -1,3 +1,4 @@
+"use client";
 import { Search } from "lucide-react";
 import { Input } from "./ui/input";
 import { Separator } from "./ui/separator";
@@ -11,13 +12,15 @@ function Searchbar(props) {
           {/* <span className="font-thin text-lg">{props.name}</span> */}
           <props.button />
         </div>
-        <div className="flex items-center border-2 border-primary h-max p-1 px-4 box-border gap-3 rounded-full max-w-5xl w-full">
+        {/* <div className="flex items-center border-2 border-primary h-max p-1 px-4 box-border gap-3 rounded-full max-w-5xl w-full">
           <Search className="stroke-primary/50" />
           <Input
+            value={searchText}
+            onChange={searchData}
             className="border-0 focus-visible:ring-0 focus-visible:ring-offset-0 p-0 w-full text-lg h-8"
             placeHolder="Search..."
           />
-        </div>
+        </div> */}
         <div className="h-max w-max rounded-full">
           <UserButton className />
         </div>

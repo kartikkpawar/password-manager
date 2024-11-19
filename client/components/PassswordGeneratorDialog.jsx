@@ -19,7 +19,7 @@ function PassswordGeneratorDialog() {
   const [inputValue, setInputValue] = useState("");
   const [includeUppercase, setIncludeUppercase] = useState(false);
   const [includeSymbols, setIncludeSymbols] = useState(false);
-  const [includeLowercase, setIncludeLowercase] = useState(false);
+  const [includeLowercase, setIncludeLowercase] = useState(true);
   const [includeNumbers, setIncludeNumbers] = useState(false);
   const [length, setLength] = useState(16);
 
